@@ -1709,11 +1709,11 @@ class ControllerArchon(Controller):
 
         roi_pars = {
             "PreSkipPixels": xpreskip,
-            # "Pixels": self.detpars.xdata,
+            "HorizontalBinning": self.detpars.col_bin - 1,
             "PostSkipPixels": self.detpars.xpostskip,
             "OverScanPixels": self.detpars.xoverscan,
             "PreSkipLines": ypreskip,
-            # "Lines": self.detpars.ydata,
+            "VerticalBinning": self.detpars.row_bin,
             "PostSkipLines": self.detpars.ypostskip,
             "OverScanLines": self.detpars.yoverscan,
         }
