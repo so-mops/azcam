@@ -555,12 +555,12 @@ class API(object):
 
         return self.instrument.set_wavelength(wavelength, wavelength_id)
 
-    def is_instrument_enabled(self) -> bool:
+    def get_instrument_enabled(self) -> int:
         """
-        Return True if instrument is enabled.
+        Return 1 if instrument is enabled, otherwise 0.
         """
 
-        return bool(self.instrument.is_enabled)
+        return int(self.instrument.is_enabled)
 
     def set_instrument_enabled(self, enabled: int) -> None:
         """
@@ -570,7 +570,7 @@ class API(object):
             enabled: 1 to enable, 0 to disable
         """
 
-        self.instrument.is_enabled = int(enabled)
+        self.instrument.is_enabled = int(bool(enabled))
 
         return
 
@@ -578,12 +578,12 @@ class API(object):
     #   telescope
     # *************************************************************************
 
-    def is_telescope_enabled(self) -> bool:
+    def get_telescope_enabled(self) -> int:
         """
-        Return True if telescope is enabled.
+        Return 1 if telescope is enabled, otherwise 0.
         """
 
-        return bool(self.telescope.is_enabled)
+        return int(self.telescope.is_enabled)
 
     def set_telescope_enabled(self, enabled: int) -> None:
         """
@@ -593,7 +593,7 @@ class API(object):
             enabled: 1 to enable, 0 to disable
         """
 
-        self.telescope.is_enabled = int(enabled)
+        self.telescope.is_enabled = int(bool(enabled))
 
         return
 
