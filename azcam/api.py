@@ -555,9 +555,52 @@ class API(object):
 
         return self.instrument.set_wavelength(wavelength, wavelength_id)
 
+    def is_instrument_enabled(self) -> bool:
+        """
+        Return True if instrument is enabled.
+        """
+
+        return bool(self.instrument.is_enabled)
+
+    def set_instrument_enabled(self, enabled: int) -> None:
+        """
+        Enable or disable instrument.
+
+        Args:
+            enabled: 1 to enable, 0 to disable
+        """
+
+        self.instrument.is_enabled = int(enabled)
+
+        return
+
+    # *************************************************************************
+    #   telescope
+    # *************************************************************************
+
+    def is_telescope_enabled(self) -> bool:
+        """
+        Return True if telescope is enabled.
+        """
+
+        return bool(self.telescope.is_enabled)
+
+    def set_telescope_enabled(self, enabled: int) -> None:
+        """
+        Enable or disable telescope.
+
+        Args:
+            enabled: 1 to enable, 0 to disable
+        """
+
+        self.telescope.is_enabled = int(enabled)
+
+        return
+
     # *************************************************************************
     #   focus
     # *************************************************************************
+
     def focus_initalize(self):
         """
         Initialize focus routine.
