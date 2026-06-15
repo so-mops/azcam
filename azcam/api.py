@@ -562,7 +562,7 @@ class API(object):
 
         return int(self.instrument.is_enabled)
 
-    def set_instrument_enabled(self, enabled: int) -> None:
+    def set_instrument_enabled(self, enabled: int | str) -> None:
         """
         Enable or disable instrument.
 
@@ -570,7 +570,8 @@ class API(object):
             enabled: 1 to enable, 0 to disable
         """
 
-        self.instrument.is_enabled = int(bool(enabled))
+        enabled = int(enabled)
+        self.instrument.is_enabled = enabled
 
         return
 
@@ -585,7 +586,7 @@ class API(object):
 
         return int(self.telescope.is_enabled)
 
-    def set_telescope_enabled(self, enabled: int) -> None:
+    def set_telescope_enabled(self, enabled: int | str) -> None:
         """
         Enable or disable telescope.
 
@@ -593,7 +594,8 @@ class API(object):
             enabled: 1 to enable, 0 to disable
         """
 
-        self.telescope.is_enabled = int(bool(enabled))
+        enabled = int(enabled)
+        self.telescope.is_enabled = enabled
 
         return
 
